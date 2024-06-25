@@ -40,6 +40,6 @@ jobs:
           DOCKER_TAGS="${{ steps.docker_tag_meta.outputs.tags }}"
           for DOCKER_TAG in $DOCKER_TAGS
           do
-            docker build . --target ezstats-batch-theses-image -t ${DOCKER_TAG}-ezstats-batch-theses
-            docker push ${DOCKER_TAG}-batch-theses
+            docker build . --target ezstats-batch-theses-image -t ${{env.DOCKERHUB_IMAGE_PREFIX }}:${DOCKER_TAG}-ezstats-batch-theses
+            docker push ${{env.DOCKERHUB_IMAGE_PREFIX }}:${DOCKER_TAG}-batch-theses
           done
