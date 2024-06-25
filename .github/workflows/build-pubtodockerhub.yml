@@ -10,6 +10,7 @@ on:
       - '.github/**'
   workflow_dispatch:
 
+
 jobs:
   build-pubtodockerhub:
     runs-on: ubuntu-latest
@@ -18,24 +19,21 @@ jobs:
       - name: "Build: checkout source code"
         uses: actions/checkout@v3
 
-      - name: "Print Hello Ezstats"
+      - name: "Print Hello World 2"
         run: echo "Hello World"
 
       - name: "Build: build docker image"
         run: |
           docker build . -t localimage:latest
-
       - name: "Push: prepare version from git tags/branchs"
         id: docker_tag_meta
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.DOCKERHUB_IMAGE_PREFIX }}
-
       - name: "Push: login to DockerHub"
         if: github.event_name != 'pull_request'
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
       - name: "Push: push docker image"
         if: github.event_name != 'pull_request'
         run: |
@@ -43,3 +41,5 @@ jobs:
           for DOCKER_TAG in $DOCKER_TAGS
           do
             docker build . --target ezstats-batch-theses-image -t ${DOCKER_TAG}-wikibase
+            docker push ${DOCKER_TAG}-wikibase
+          done
