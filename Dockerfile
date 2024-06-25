@@ -22,5 +22,3 @@ COPY launch-ezp.sh /home/node
 RUN chmod +x /home/node/launch-ezp.sh
 
 ENTRYPOINT [ "docker-entrypoint.sh" ]
-
-FROM base
