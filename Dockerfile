@@ -1,4 +1,4 @@
-FROM node:18.16.0
+FROM node:18.16.0 AS ezstats-batch-theses-image
 LABEL maintainer="ezPAARSE Team <ezpaarse@couperin.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -23,4 +23,4 @@ RUN chmod +x /home/node/launch-ezp.sh
 
 ENTRYPOINT [ "docker-entrypoint.sh" ]
 
-FROM base AS ezstats-batch-theses-image
+FROM base
