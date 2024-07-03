@@ -1,4 +1,4 @@
-FROM node:18.16.0 AS ezstats-batch-theses-image
+FROM node:18.16.0 AS ezstats-batch-theses
 LABEL maintainer="ezPAARSE Team <ezpaarse@couperin.org>"
 
 ENV DEBIAN_FRONTEND noninteractive
