@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# URL de ezmesure (à adapter selon votre configuration)
 RESULTS_DIR="/home/node/logtheses/data/thesesfr/results"
 
 cd /home/node
