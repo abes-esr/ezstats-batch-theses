@@ -20,4 +20,8 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 COPY launch-ezp.sh /home/node
 RUN chmod +x /home/node/launch-ezp.sh
 
+#=== Shell to launch ezm programm ===
+COPY launch-ezm.sh /home/node
+RUN chmod +x /home/node/launch-ezm.sh
+
 ENTRYPOINT [ "docker-entrypoint.sh" ]
