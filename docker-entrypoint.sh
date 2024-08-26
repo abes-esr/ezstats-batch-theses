@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # https://crontab.guru/#0_0_*_*_*
-{ echo ""; \
+{ echo "EZMESURE_TOKEN=$EZMESURE_TOKEN"
+  echo ""; \
   echo "# EZP Bulk"; \
   echo "0 2 * * * /home/node/launch-ezp.sh 1>/proc/1/fd/1 2>/proc/1/fd/2"; \
   echo "# EZM"; \
