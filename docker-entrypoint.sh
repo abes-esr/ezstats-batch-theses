@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # https://crontab.guru/#0_0_*_*_*
-{ echo "EZMESURE_TOKEN=$EZMESURE_TOKEN"
+{ echo "EZM_TOKEN=$EZMESURE_TOKEN"
   echo ""; \
   echo "# EZP Bulk"; \
   echo "0 2 * * * /home/node/launch-ezp.sh 1>/proc/1/fd/1 2>/proc/1/fd/2"; \
   echo "# EZM"; \
-  echo "0 6 * * * /home/node/launch-ezm.sh $EZMESURE_TOKEN 1>/proc/1/fd/1 2>/proc/1/fd/2" ; \
+  echo "0 6 * * * /home/node/launch-ezm.sh $EZM_TOKEN 1>/proc/1/fd/1 2>/proc/1/fd/2" ; \
 	} | crontab -
 
 # start cron
