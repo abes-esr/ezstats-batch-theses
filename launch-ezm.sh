@@ -9,6 +9,8 @@ RESULTS_DIR="/home/node/logtheses/data/thesesfr/results"
 if [[ $(ps -edf | grep -c "launch-ezm.sh") = 4 ]];then
   cd /home/node
   ezmesure -t "$1"  indices insert  z-abes-ezpaarse -r $RESULTS_DIR
+
+  #Donne les droits pour modifier/supprimer les fichiers depuis l'accès Webdav
   chmod -R 777 $RESULTS_DIR
 else
   dt=$(date '+%d/%m/%Y %H:%M:%S')

@@ -14,6 +14,8 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
                   -H "ezPAARSE-Middlewares: thesesfr,thesesfr-personne" \
                   -H "Output-Fields: +nnt, +numSujet, +etabSoutenanceN, +etabSoutenancePpn, +dateSoutenance, +dateInscription, +statut, +accessible, +source, +discipline, +domaine, +langue, +ecoleDoctoraleN, +ecoleDoctoralePpn, +partenaireRechercheN, +partenaireRecherchePpn, +cotutelleN, +cotutellePpn, +auteurN, +auteurPpn, +directeurN, +directeurPpn, +presidentN, +presidentPpn, +rapporteursN, +rapporteursPpn, +membresN, +membresPpn, +personneN, +personnePpn, +organismeN, +organismePpn" \
                   -H "Log-Format-apache: %h %l %u %t \"%r\" %>s %b \"%{Referer}<.*>\" \"%{User-Agent}<.*>\" \"%{Shib-Identity-Provider}<.*>\" \"%{eppn}<.*>\" \"%{primary-affiliation}<.*>\" \"%{supannEtablissement}<.*>\""
+
+  #Donne les droits pour modifier/supprimer les fichiers depuis l'accès Webdav
   chmod -R 777 logtheses/data/thesesfr/results/
 else
   dt=$(date '+%d/%m/%Y %H:%M:%S')
