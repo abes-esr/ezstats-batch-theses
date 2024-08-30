@@ -1,10 +1,14 @@
 #!/bin/bash
 #Batch qui lance ezpaarse sur le repertoire logtheses/data/thesesfr/logs/ et ecrit les resultats dans logtheses/data/thesesfr/results/
+#Doc EZPaarse NodeJS : https://github.com/ezpaarse-project/node-ezpaarse
 
 PATH=/opt/ezpaarse/bin:/opt/ezpaarse/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 NODE_ENV=production
 
+dt=$(date '+%d/%m/%Y %H:%M:%S')
+
 if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
+  echo "$dt Envoi des données dans EZPaarse"
   cd /home/node
   ezp bulk -r -v logtheses/data/thesesfr/logs/ logtheses/data/thesesfr/results/ \
                   -h ezstats-ezpaarse:59599 \
@@ -18,6 +22,5 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
   #Donne les droits pour modifier/supprimer les fichiers depuis l'accès Webdav
   chmod -R 777 logtheses/data/thesesfr/results/
 else
-  dt=$(date '+%d/%m/%Y %H:%M:%S')
   echo "$dt launch-ezp.sh s'execute deja"
 fi
