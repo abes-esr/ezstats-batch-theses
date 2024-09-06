@@ -15,7 +15,7 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
                   -H "Force-Parser: thesesfr" \
                   -H "filter-platforms: thesesfr" \
                   -H "ezPAARSE-Filter-Redirects: false" \
-                  -H "ezPAARSE-Middlewares: thesesfr,thesesfr-personne" \
+                  -H "ezPAARSE-Middlewares: thesesfr,thesesfr-personne,thesesfr-organisme" \
                   -H "Output-Fields: +nnt, +numSujet, +etabSoutenanceN, +etabSoutenancePpn, +dateSoutenance, +dateInscription, +statut, +accessible, +source, +discipline, +domaine, +langue, +ecoleDoctoraleN, +ecoleDoctoralePpn, +partenaireRechercheN, +partenaireRecherchePpn, +cotutelleN, +cotutellePpn, +auteurN, +auteurPpn, +directeurN, +directeurPpn, +presidentN, +presidentPpn, +rapporteursN, +rapporteursPpn, +membresN, +membresPpn, +personneN, +personnePpn, +organismeN, +organismePpn" \
                   -H "Log-Format-apache: %h %l %u %t \"%r\" %>s %b \"%{Referer}<.*>\" \"%{User-Agent}<.*>\" \"%{Shib-Identity-Provider}<.*>\" \"%{eppn}<.*>\" \"%{primary-affiliation}<.*>\" \"%{supannEtablissement}<.*>\""
 
