@@ -70,7 +70,7 @@ jobs:
           echo "push origin" 
           git commit --amend -m "Version $NEW_TAG [skip ci]"
           echo "commit"          
-          git -f push
+          git push -f
           echo "push"
           # merge la préparation de la nouvelle version sur develop
           git switch develop
