@@ -69,10 +69,8 @@ jobs:
           git push origin $NEW_TAG
           echo "push origin" 
           git commit --amend -m "Version $NEW_TAG [skip ci]"
-          echo "commit"
-          git pull
-          echo "pull"
-          git push
+          echo "commit"          
+          git -f push
           echo "push"
           # merge la préparation de la nouvelle version sur develop
           git switch develop
