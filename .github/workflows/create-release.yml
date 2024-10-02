@@ -66,10 +66,12 @@ jobs:
           #git commit -m "Version $NEW_TAG"
           git tag $NEW_TAG
           echo "avant push tag" 
-          git push -f origin $NEW_TAG
+          git push origin $NEW_TAG
           echo "push origin" 
           git commit --amend -m "Version $NEW_TAG [skip ci]"
           echo "commit"
+          git pull
+          echo "pull"
           git push
           echo "push"
           # merge la préparation de la nouvelle version sur develop
