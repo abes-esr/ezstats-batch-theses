@@ -64,7 +64,6 @@ jobs:
           # création du tag
           #git add .
           #git commit -m "Version $NEW_TAG"
-          git pull
           git tag $NEW_TAG
           echo "avant push tag" 
           git push -f origin $NEW_TAG
