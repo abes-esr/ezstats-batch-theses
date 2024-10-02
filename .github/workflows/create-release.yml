@@ -66,8 +66,11 @@ jobs:
           #git commit -m "Version $NEW_TAG"
           git tag $NEW_TAG
           git push origin $NEW_TAG
+          echo "push origin" 
           git commit --amend -m "Version $NEW_TAG [skip ci]"
+          echo "commit"
           git push
+          echo "push"
           # merge la préparation de la nouvelle version sur develop
           git switch develop
           git merge main -m "Merge main to develop [skip ci]"
