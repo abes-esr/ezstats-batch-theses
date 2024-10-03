@@ -5,6 +5,9 @@ env:
 
 on:
   push:
+    branches:
+      - main
+      - develop
     paths-ignore:
       - '**.md'
       - '.github/**'
