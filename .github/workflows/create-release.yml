@@ -49,8 +49,8 @@ jobs:
           git config --global user.email "github-action@noreply"
           git config --global user.name "Github Action"
           
-          echo $NEW_TAG > version
-          git add version 
+          echo $NEW_TAG > .version
+          git add .version 
           # création du tag
           git commit -m "Version $NEW_TAG"
           git tag $NEW_TAG
