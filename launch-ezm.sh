@@ -1,6 +1,6 @@
 #!/bin/bash
 #Batch qui lance ezmesure sur le repertoire logtheses/data/thesesfr/results/ sur l'url $1, avec le token EZMesure $2 et l'index $3
-#Doc EZMesure NodeJS : https://github.com/ezpaarse-project/node-ezmesure
+#Doc EZMesure NodeJS : https://github.com/ezpaarse-project/node-ezmesure .
 
 PATH=/opt/ezpaarse/bin:/opt/ezpaarse/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 NODE_ENV=production
