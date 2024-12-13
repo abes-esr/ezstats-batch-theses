@@ -11,7 +11,7 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
   echo "$dt Envoi des données dans EZPaarse"
   cd /home/node
 
-  # En cas de rechargement des logs complet : passer les headers thesesfr-base-wait-time et thesesfr-throttle à 10 pour passer d'un traitement de log de 3h, à 20 minutes
+  # En cas de rechargement des logs complet : passer les headers thesesfr-base-wait-time et thesesfr-throttle a 10 pour passer d'un traitement de log de 3h, a 20 minutes
   # Attention a surveiller theses.fr dans ce cas : plantages constates en 2024
 
   # Les valeurs par défaut de thesesfr-base-wait-time : 1000 et thesesfr-throttle : 100
