@@ -11,9 +11,10 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
   echo "$dt Envoi des données dans EZPaarse"
   cd /home/node
 
-  # Ajouter ces headers en cas de rechargement des logs complet
-  #                  -H "thesesfr-base-wait-time: 10" \
-  #                  -H "thesesfr-throttle: 10" \
+  # En cas de rechargement des logs complet : passer les headers thesesfr-base-wait-time et thesesfr-throttle à 10 pour passer d'un traitement de log de 3h, à 20 minutes
+  # Attention a surveiller theses.fr dans ce cas : plantages constates en 2024
+
+  # Les valeurs par défaut de thesesfr-base-wait-time : 1000 et thesesfr-throttle : 100
 
   ezp bulk -r -v logtheses/data/thesesfr/logs/ logtheses/data/thesesfr/results/ \
                   -h ezstats-ezpaarse:59599 \
@@ -21,6 +22,8 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
                   -H "filter-platforms: thesesfr" \
                   -H "ezPAARSE-Filter-Redirects: false" \
                   -H "ezPAARSE-Middlewares: thesesfr,thesesfr-personne,thesesfr-organisme,idp-metadata" \
+                  -H "thesesfr-base-wait-time: 1000" \
+                  -H "thesesfr-throttle: 100" \
                   -H "Output-Fields: +nnt, +numSujet, +etabSoutenanceN, +etabSoutenancePpn, +codeCourt, +dateSoutenance, +anneeSoutenance, +dateInscription, +anneeInscription, +statut, +discipline, +ecoleDoctoraleN, +ecoleDoctoralePpn, +partenaireRechercheN, +partenaireRecherchePpn, +auteurN, +auteurPpn, +directeurN, +directeurPpn, +presidentN, +presidentPpn, +rapporteursN, +rapporteursPpn, +membresN, +membresPpn, +personneN, +personnePpn, +organismeN, +organismePpn, +platform_name, +publication_title, +libelle_idp" \
                   -H "Log-Format-apache: %h %l %{login}<.*> %t \"%r\" %>s %b \"%{Referer}<.*>\" \"%{User-Agent}<.*>\" \"%{Shib-Identity-Provider}<.*>\" \"%{eppn}<.*>\" \"%{primary-affiliation}<.*>\" \"%{supannEtablissement}<.*>\""
 
