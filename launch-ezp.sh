@@ -24,6 +24,10 @@ if [[ $(ps -edf | grep -c "launch-ezp.sh") = 4 ]];then
                   -H "ezPAARSE-Middlewares: thesesfr,thesesfr-personne,thesesfr-organisme,idp-metadata" \
                   -H "thesesfr-base-wait-time: 1000" \
                   -H "thesesfr-throttle: 100" \
+                  -H "thesesfr-personne-base-wait-time: 1000" \
+                  -H "thesesfr-personne-throttle: 100" \
+                  -H "thesesfr-organisme-base-wait-time: 1000" \
+                  -H "thesesfr-organisme-throttle: 100" \
                   -H "Output-Fields: +nnt, +numSujet, +etabSoutenanceN, +etabSoutenancePpn, +codeCourt, +dateSoutenance, +anneeSoutenance, +dateInscription, +anneeInscription, +statut, +discipline, +ecoleDoctoraleN, +ecoleDoctoralePpn, +partenaireRechercheN, +partenaireRecherchePpn, +auteurN, +auteurPpn, +directeurN, +directeurPpn, +presidentN, +presidentPpn, +rapporteursN, +rapporteursPpn, +membresN, +membresPpn, +personneN, +personnePpn, +organismeN, +organismePpn, +platform_name, +publication_title, +libelle_idp" \
                   -H "Log-Format-apache: %h %l %{login}<.*> %t \"%r\" %>s %b \"%{Referer}<.*>\" \"%{User-Agent}<.*>\" \"%{Shib-Identity-Provider}<.*>\" \"%{eppn}<.*>\" \"%{primary-affiliation}<.*>\" \"%{supannEtablissement}<.*>\""
 
